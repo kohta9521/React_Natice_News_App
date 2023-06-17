@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Image, Text, View } from "react-native";
+import { StyleSheet, SafeAreaView, FlatList } from "react-native";
 import { ListItem } from "./components/ListItem";
 import articles from "./dummies/articles.json";
 
@@ -14,14 +14,17 @@ export default function App() {
       />
     );
   });
-
-  const sampleText =
-    "この文章はダミーです。この文章はダミーです。この文章はダミーです。この文章はダミーです。この文章はダミーです。この文章はダミーです。";
   return (
-    <View style={styles.container}>
-      {items}
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={articles}
+        renderItem={({ item }) => {
+          return <ListItem imageUrl={item.urlToImage} title={item.title} author={item.author} />;
+        }}
+        keyExtractor={(item, index) => index.toString()}
+      />
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -29,8 +32,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "gray",
-    color: "red",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
