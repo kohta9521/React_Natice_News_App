@@ -2,7 +2,7 @@ import { StyleSheet, SafeAreaView, Text } from "react-native";
 
 export const ClipScreen = () => {
   return (
-    <SafeAreaView style={stylex.container}>
+    <SafeAreaView style={styles.container}>
       <Text>Clip Screen!</Text>
     </SafeAreaView>
   );

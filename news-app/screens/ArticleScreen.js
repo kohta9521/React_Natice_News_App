@@ -5,7 +5,9 @@ export const ArticleScreen = ({ route }) => {
   const { article } = route.params;
   return (
     <SafeAreaView style={styles.container}>
-      <WebView source={{ uri: "https://expo.dev" }} />
+      <WebView
+        source={{ uri: "https://news.tv-asahi.co.jp/news_society/articles/000303659.html" }}
+      />
     </SafeAreaView>
   );
 };
